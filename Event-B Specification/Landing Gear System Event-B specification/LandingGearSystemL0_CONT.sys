@@ -8,10 +8,10 @@ CONSTANTS
 	Extended,
 	Retracted
 PROPERTIES
-	lg : LandingGearSystem &
-	LandingGearSystem ={lg} &
-	Retracted : LandingGearSystemStates &
-	Extended : LandingGearSystemStates &
-	Retracted /= Extended &
+	lg ∈ LandingGearSystem ∧
+	LandingGearSystem ={lg} ∧
+	Retracted ∈ LandingGearSystemStates ∧
+	Extended ∈ LandingGearSystemStates ∧
+	Retracted ≠ Extended ∧
 	LandingGearSystemStates ={Extended, Retracted}
 END

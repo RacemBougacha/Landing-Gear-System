@@ -5,18 +5,16 @@ SEES
 VARIABLES
 	lgState
 INVARIANT
-	lgState : LandingGearSystem --> LandingGearSystemStates
+	lgState ∈ LandingGearSystem → LandingGearSystemStates
 INITIALISATION
-	lgState :: {lg} -->LandingGearSystemStates
-
+	lgState :∈ {lg} →LandingGearSystemStates
 EVENTS
 	RetractsLGS =
 	SELECT
 		lgState(lg)=Extended
 	THEN
 		lgState(lg):=Retracted
-	END
- ;
+	END;
 	ExtendsLGS =
 	SELECT
 		lgState(lg)=Retracted
@@ -24,4 +22,3 @@ EVENTS
 		lgState(lg):=Extended
 	END
 END
-

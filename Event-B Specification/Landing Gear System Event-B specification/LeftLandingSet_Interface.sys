@@ -1,40 +1,36 @@
 SYSTEM
-	LeftLandingSet_Interface
+LeftLandingSet_Interface
 SEES
-	MechanicalSubSystem_CONT,
-	LandingGearSystemL1_CONT,
-	LandingGearSystemL0_CONT
+MechanicalSubSystem_CONT,
+LandingGearSystemL1_CONT,
+LandingGearSystemL0_CONT
 VARIABLES
-	llsState
+llsState
 INVARIANT
-	llsState : LeftLandingSet --> LeftLandingSetSTATES
+llsState ∈ LeftLandingSet → LeftLandingSetSTATES
 INITIALISATION
-	llsState :: {lls} -->LeftLandingSetSTATES
+llsState :∈ {lls} →LeftLandingSetSTATES
 EVENTS
-	ExtendsLeftLandingSet =
-	SELECT
-		llsState(lls)=retractedLLS
-	THEN
-		llsState(lls):=extendedLLS
-	END
- ;
-	commandsMechanicalSSForExtension_R =
-	SELECT
-		llsState(lls)=extendedLLS
-	THEN
- skip 	END
- ;
-	commandsMechanicalSSForRetraction_R  =
-	SELECT
-		llsState(lls)=retractedLLS
-	THEN
- skip 	END
- ;
-	RetractsLeftLandingSet =
-	SELECT
-		llsState(lls)=extendedLLS
-	THEN
-		llsState(lls):=retractedLLS
-	END
+ExtendsLeftLandingSet =
+SELECT
+llsState(lls)=retractedLLS
+THEN
+llsState(lls):=extendedLLS
+END;
+ExtendsLG =
+SELECT
+llsState(lls)=extendedLLS
+THEN
+skip END;
+RetractsLG =
+SELECT
+llsState(lls)=retractedLLS
+THEN
+skip END;
+RetractsLeftLandingSet =
+SELECT
+llsState(lls)=extendedLLS
+THEN
+llsState(lls):=retractedLLS
 END
-
+END
