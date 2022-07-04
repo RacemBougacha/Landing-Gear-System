@@ -1,8 +1,8 @@
 SYSTEM
            DigitalSubSystem_Interface
 SEES
-LandingGearSystemL1_CONT,
-LandingGearSystemL0_CONT
+	LandingGearSystemL1_CONT,
+	LandingGearSystemL0_CONT
 VARIABLES
             dssState
 INVARIANT

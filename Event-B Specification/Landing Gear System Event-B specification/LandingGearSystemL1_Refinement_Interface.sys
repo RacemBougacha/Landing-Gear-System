@@ -1,37 +1,37 @@
 SYSTEM
-LandingGearSystemL1_Refinement_Interface
+	LandingGearSystemL1_Refinement_Interface
 SEES
-LandingGearSystemL1_CONT,
-LandingGearSystemL0_CONT
+	LandingGearSystemL1_CONT,
+	LandingGearSystemL0_CONT
 VARIABLES
-lgState
+	lgState
 INVARIANT
-lgState ∈ LandingGearSystem → LandingGearSystemStates
+	lgState ∈ LandingGearSystem → LandingGearSystemStates
 INITIALISATION
-lgState :∈ {lg} →LandingGearSystemStates
+	lgState :∈ {lg} →LandingGearSystemStates
 EVENTS
-ExtendsLG =
-SELECT
-lgState(lg)=Retracted
-THEN
-lgState(lg):=Extended
-END;
-RetractsLG =
-SELECT
-lgState(lg)=Extended
-THEN
-lgState(lg):=Retracted
-END;
-commandsPiloteSSForExtension =
-SELECT
-lgState(lg)=Retracted
-THEN
-skip 
-END;
-commandsPiloteSSForRetraction =
-SELECT
-lgState(lg)=Extended
-THEN
-skip 
-END
+	ExtendsLG =
+	SELECT
+		lgState(lg)=Retracted
+	THEN
+		lgState(lg):=Extended
+	END;
+	RetractsLG =
+	SELECT
+		lgState(lg)=Extended
+	THEN
+		lgState(lg):=Retracted
+	END;
+	commandsPiloteSSForExtension =
+	SELECT
+		lgState(lg)=Retracted
+	THEN
+		skip 
+	END;
+	commandsPiloteSSForRetraction =
+	SELECT
+		lgState(lg)=Extended
+	THEN
+		skip 
+	END
 END

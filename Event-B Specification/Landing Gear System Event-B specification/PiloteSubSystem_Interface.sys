@@ -1,37 +1,37 @@
 SYSTEM
-PiloteSubSystem_Interface
+	PiloteSubSystem_Interface
 SEES
-LandingGearSystemL1_CONT,
-LandingGearSystemL0_CONT
+	LandingGearSystemL1_CONT,
+	LandingGearSystemL0_CONT
 VARIABLES
-pssState
+	pssState
 INVARIANT
-pssState ∈ PiloteSubSystem → PiloteSubSystemStates
+	pssState ∈ PiloteSubSystem → PiloteSubSystemStates
 INITIALISATION
-pssState :∈ {pss} →PiloteSubSystemStates
+	pssState :∈ {pss} →PiloteSubSystemStates
 EVENTS
-commandsDigitalSSForRetraction =
-SELECT
-pssState(pss)=orderedForRetractionPiloteSS
-THEN
-skip 
-END;
-commandsPiloteSSForExtension =
-SELECT
-pssState(pss)=orderedForRetractionPiloteSS
-THEN
-pssState(pss):=orderedForExtensionPiloteSS
-END;
-commandsDigitalSSForExtension =
-SELECT
-pssState(pss)=orderedForExtensionPiloteSS
-THEN
-skip
-END;
-commandsPiloteSSForRetraction =
-SELECT
-pssState(pss)=orderedForExtensionPiloteSS
-THEN
-pssState(pss):=orderedForRetractionPiloteSS
-END
+	commandsDigitalSSForRetraction =
+	SELECT
+		pssState(pss)=orderedForRetractionPiloteSS
+	THEN
+		skip 
+	END;
+	commandsPiloteSSForExtension =
+	SELECT
+		pssState(pss)=orderedForRetractionPiloteSS
+	THEN
+		pssState(pss):=orderedForExtensionPiloteSS
+	END;
+	commandsDigitalSSForExtension =
+	SELECT
+		pssState(pss)=orderedForExtensionPiloteSS
+	THEN
+		skip
+	END;
+	commandsPiloteSSForRetraction =
+	SELECT
+		pssState(pss)=orderedForExtensionPiloteSS
+	THEN
+		pssState(pss):=orderedForRetractionPiloteSS
+	END
 END

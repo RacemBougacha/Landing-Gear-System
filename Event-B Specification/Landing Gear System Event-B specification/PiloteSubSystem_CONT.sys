@@ -1,17 +1,17 @@
 SYSTEM
-PiloteSubSystem_CONT
+	PiloteSubSystem_CONT
 SETS
-Handle;
-HandleSTATES
+	Handle;
+	HandleSTATES
 CONSTANTS
-hd,
-down,
-up
+	hd,
+	down,
+	up
 PROPERTIES
-hd ∈ Handle ∧
-Handle ={hd} ∧
-down ∈ HandleSTATES ∧
-up ∈ HandleSTATES ∧
-up ≠ down ∧
-HandleSTATES ={down, up}
+	hd ∈ Handle ∧
+	Handle ={hd} ∧
+	down ∈ HandleSTATES ∧
+	up ∈ HandleSTATES ∧
+	up ≠ down ∧
+	HandleSTATES ={down, up}
 END
